@@ -48,7 +48,8 @@ export default class TaskSplitter<T> {
 			for (let i = 0; i < updateCount; i++) {
 				this.currentIndex += 1;
 
-				if (this.currentIndex > items.size()) {
+				if (this.currentIndex >= items.size()) {
+					this.currentIndex = 0;
 				}
 
 				this.executeFunc(items[this.currentIndex]);
