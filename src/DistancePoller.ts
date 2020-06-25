@@ -78,7 +78,7 @@ export class Goal {
 		Goal.goals.unorderedRemove(thisIndex);
 	}
 
-	public static defaultUpdateInterval(distance: number) {
+	public static defaultUpdateInterval(this: void, distance: number) {
 		/**
 		 * Will be 0.1 at 0 distance and 5 at 200
 		 */
