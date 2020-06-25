@@ -13,10 +13,7 @@ export class Goal {
 	public part: BasePart;
 	public radius: number;
 
-	/**
-	 * Am I using the word "agent" correctly here?
-	 * Please help
-	 */
+	//Am I using the word "agent" correctly here?
 	public agents: Map<
 		Player,
 		{
@@ -26,9 +23,16 @@ export class Goal {
 		}
 	>;
 
+	public updateInterval: (distance: number) => number;
+
 	//TODO: Add way to create a goal without needing a part
 	//TODO: Add a way to use this for non-players
-	public constructor(part: BasePart, radius: number, players: Array<Player>) {
+	public constructor(
+		part: BasePart,
+		radius: number,
+		players: Array<Player>,
+		updateInterval?: (distance: number) => number,
+	) {
 		this.part = part;
 		this.radius = radius;
 
@@ -40,6 +44,12 @@ export class Goal {
 				step: 0,
 				inside: false,
 			});
+		}
+
+		if (updateInterval !== undefined) {
+			this.updateInterval = updateInterval;
+		} else {
+			this.updateInterval = Goal.defaultUpdateInterval;
 		}
 
 		Goal.goals.push(this);
@@ -60,15 +70,9 @@ export class Goal {
 	public destroy() {
 		this.entered.Destroy();
 		this.left.Destroy();
-
-		const thisIndex = Goal.goals.findIndex((value) => {
-			return value === this;
-		});
-
-		Goal.goals.unorderedRemove(thisIndex);
 	}
 
-	public static updateInterval(distance: number) {
+	public static defaultUpdateInterval(distance: number) {
 		/**
 		 * Will be 0.1 at 0 distance and 5 at 200
 		 */
@@ -90,7 +94,7 @@ RunService.Heartbeat.Connect((step) => {
 
 					const distance = goal.part.Position.sub(character.PrimaryPart.Position).Magnitude;
 
-					agent.interval = Goal.updateInterval(distance);
+					agent.interval = goal.updateInterval(distance);
 
 					if (distance <= goal.radius) {
 						if (agent.inside === false) {
