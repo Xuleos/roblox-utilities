@@ -24,6 +24,7 @@
     "prettier": "^2.0.5"
   },
   "dependencies": {
-    "@rbxts/services": "^1.0.4"
+    "@rbxts/services": "^1.0.4",
+    "@rbxts/signal": "^1.0.1"
   }
 }
