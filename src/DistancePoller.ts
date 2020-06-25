@@ -70,6 +70,12 @@ export class Goal {
 	public destroy() {
 		this.entered.Destroy();
 		this.left.Destroy();
+
+		const thisIndex = Goal.goals.findIndex((value) => {
+			return value === this;
+		});
+
+		Goal.goals.unorderedRemove(thisIndex);
 	}
 
 	public static defaultUpdateInterval(distance: number) {
@@ -81,7 +87,6 @@ export class Goal {
 }
 
 //TODO: Use task splitter so we don't have to be doing all of this on a single heartbeat
-
 RunService.Heartbeat.Connect((step) => {
 	for (const goal of Goal.goals) {
 		for (const [player, agent] of goal.agents) {
