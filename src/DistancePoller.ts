@@ -60,6 +60,12 @@ export class Goal {
 	public destroy() {
 		this.entered.Destroy();
 		this.left.Destroy();
+
+		const thisIndex = Goal.goals.findIndex((value) => {
+			return value === this;
+		});
+
+		Goal.goals.unorderedRemove(thisIndex);
 	}
 
 	public static updateInterval(distance: number) {
