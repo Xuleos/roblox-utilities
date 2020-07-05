@@ -1,18 +1,18 @@
 {
   "name": "@rbxts/distancepoller",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "out/init.lua",
   "types": "out/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Xuleos/roblox-utilities.git"
+    "url": "https://github.com/Xuleos/roblox-utilities/tree/master/DistancePoller"
   },
   "author": "Xuleos",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Xuleos/roblox-utilities/issues"
   },
-  "homepage": "https://github.com/Xuleos/roblox-utilities",
+  "homepage": "https://github.com/Xuleos/roblox-utilities/blob/master/DistancePoller/README.md",
   "publishConfig": {
     "access": "public"
   },
@@ -22,5 +22,10 @@
   },
   "devDependencies": {
     "@rbxts/types": "^1.0.376"
-  }
+  },
+  "description": "A small utility for priority distance polling. This means that it polls an object's distance quicker/slower depending on how far away it was last time it checked",
+  "scripts": {
+    "prepublishOnly": "rbxtsc"
+  },
+  "keywords": []
 }
