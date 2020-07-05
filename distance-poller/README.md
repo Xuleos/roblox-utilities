@@ -14,7 +14,7 @@ const MAXIMUM_INTERVAL = 5
 const radius = 5
 const players = [Players.LocalPlayer]
 
-const goal = new Goal(target, radius, players, (distance) => {
+const goal = new DistancePoller.Goal(target, radius, players, (distance) => {
     return math.min(math.max(distance / 40, MINIMUM_INTERVAL), MAXIMUM_INTERVAL);
 });
 
