@@ -1,18 +1,18 @@
 {
   "name": "@rbxts/distancepoller",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "out/init.lua",
   "types": "out/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Xuleos/roblox-utilities/tree/master/DistancePoller"
+    "url": "https://github.com/Xuleos/roblox-utilities/tree/master/distance-poller"
   },
   "author": "Xuleos",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Xuleos/roblox-utilities/issues"
   },
-  "homepage": "https://github.com/Xuleos/roblox-utilities/blob/master/DistancePoller/README.md",
+  "homepage": "https://github.com/Xuleos/roblox-utilities/blob/master/distance-poller/README.md",
   "publishConfig": {
     "access": "public"
   },
