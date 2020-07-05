@@ -1,6 +1,6 @@
 {
   "name": "@rbxts/distancepoller",
-  "version": "1.0.2",
+  "version": "1.0.3b",
   "main": "out/init.lua",
   "types": "out/index.d.ts",
   "repository": {
