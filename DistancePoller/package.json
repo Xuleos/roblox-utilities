@@ -1,0 +1,26 @@
+{
+  "name": "@rbxts/distancepoller",
+  "version": "1.0.0",
+  "main": "out/init.lua",
+  "types": "out/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xuleos/roblox-utilities.git"
+  },
+  "author": "Xuleos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Xuleos/roblox-utilities/issues"
+  },
+  "homepage": "https://github.com/Xuleos/roblox-utilities",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@rbxts/services": "^1.0.4",
+    "@rbxts/signal": "^1.0.1"
+  },
+  "devDependencies": {
+    "@rbxts/types": "^1.0.376"
+  }
+}
