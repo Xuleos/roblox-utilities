@@ -3,43 +3,43 @@ import { RunService, HttpService } from "@rbxts/services";
 type ConnectionCallback = (step: number) => void;
 
 interface EventConfig {
-	Priority: number;
-	Func: ConnectionCallback;
-	Key: string;
+	priority: number;
+	func: ConnectionCallback;
+	key: string;
 }
 
-const Listeners: Array<EventConfig> = [];
+const listeners: Array<EventConfig> = [];
 
-export function Connect(Priority: number, Func: ConnectionCallback) {
-	const Key = HttpService.GenerateGUID();
+export function Connect(priority: number, func: ConnectionCallback) {
+	const key = HttpService.GenerateGUID();
 
-	Listeners.push({
-		Priority: Priority,
-		Func: Func,
-		Key: Key,
+	listeners.push({
+		priority: priority,
+		func: func,
+		key: key,
 	});
 
-	Listeners.sort((a, b) => {
-		return a.Priority < b.Priority;
+	listeners.sort((a, b) => {
+		return a.priority < b.priority;
 	});
 
 	return {
 		Disconnect: () => {
-			const ConnectionIndex = Listeners.findIndex((value) => {
-				if (value.Key === Key) {
+			const connectionIndex = listeners.findIndex((value) => {
+				if (value.key === key) {
 					return true;
 				}
 			});
 
-			Listeners.remove(ConnectionIndex);
+			listeners.remove(connectionIndex);
 		},
 	};
 }
 
 RunService.Heartbeat.Connect((step) => {
-	for (let i = 0; i < Listeners.size(); i++) {
-		const element = Listeners[i];
+	for (let i = 0; i < listeners.size(); i++) {
+		const element = listeners[i];
 
-		element.Func(step);
+		element.func(step);
 	}
 });
