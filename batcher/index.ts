@@ -11,11 +11,11 @@ export default class Batcher<T> {
 	private items: Array<T>
 
 	/**
-	 * @param fetchFunc - you should return the items you want batched in this callback
+	 * @param fetchCallback - you should return the items you want batched in this callback
 	 * @param updateInterval - interval at which items should be updated
 	 */
-	constructor(private fetchFunc: () => Array<T>, private updateInterval = DEFAULT_UPDATE_INTERVAL) {
-		this.items = fetchFunc()
+	constructor(private fetchCallback: () => Array<T>, private updateInterval = DEFAULT_UPDATE_INTERVAL) {
+		this.items = fetchCallback()
 	}
 
 	/**
@@ -41,7 +41,7 @@ export default class Batcher<T> {
 			this.currentIndex += 1;
 
 			if (this.currentIndex >= this.items.size()) {
-				this.items = this.fetchFunc()
+				this.items = this.fetchCallback()
 				this.currentIndex = 0;
 			}
 
