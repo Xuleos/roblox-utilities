@@ -1,4 +1,3 @@
-const DEFAULT_UPDATE_INTERVAL = 0.25;
 
 /** Puts an array of items in batches for you to update over time instead of all at once */
 export default class Batcher<T> {
@@ -14,7 +13,7 @@ export default class Batcher<T> {
 	 * @param getItems - you should return the items you want batched in this
 	 * @param updateInterval - interval at which items should be updated
 	 */
-	constructor(private getItems: () => Array<T>, private updateInterval = DEFAULT_UPDATE_INTERVAL) {
+	constructor(private updateInterval: number, private getItems: () => Array<T>) {
 		this.items = getItems()
 	}
 
