@@ -79,10 +79,8 @@ export class Goal {
 	}
 
 	public static defaultUpdateInterval(this: void, distance: number) {
-		/**
-		 * Will be 0.1 at 0 distance and 5 at 200
-		 */
-		return math.min(math.max(distance / 40, LOWER_INTERVAL), UPPER_INTERVAL);
+		//Will be 0.1 at 0 distance and 5 at 200
+		return math.clamp(distance / 40, LOWER_INTERVAL, UPPER_INTERVAL)
 	}
 }
 
