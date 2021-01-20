@@ -1,5 +1,8 @@
 # @rbxts/distancepoller
-A small utility for priority distance polling. This means that it polls an object's distance quicker/slower depending on how far away it was last time it checked
+A small utility for priority distance polling. This means that it polls an object's distance quicker/slower depending on how far away it was last time it 
+
+
+hey hey hey it is much preferred that you use Roblox's new proximity prompt for stuff like this. This method is far far slower and doesn't take things like cameras into account nicely
 
 ## Installation
 ```npm i @rbxts/distancepoller```
@@ -15,7 +18,7 @@ const radius = 5
 const players = [Players.LocalPlayer]
 
 const goal = new DistancePoller.Goal(target, radius, players, (distance) => {
-    return math.min(math.max(distance / 40, MINIMUM_INTERVAL), MAXIMUM_INTERVAL);
+    return math.clamp(distance / 40, MINIMUM_INTERVAL, MAXIMUM_INTERVAL)
 });
 
 goal.entered.Connect(() => {
