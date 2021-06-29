@@ -9,11 +9,13 @@ hey hey hey it is much preferred that you use Roblox's new proximity prompt for 
 
 ## Example Usage
 ```typescript
+import { Workspace } from "@rbxts/services";
 import * as DistancePoller from "@rbxts/distancepoller";
 
 const MINIMUM_INTERVAL = 0.1
 const MAXIMUM_INTERVAL = 5
 
+const target = Workspace.Part
 const radius = 5
 const players = [Players.LocalPlayer]
 
