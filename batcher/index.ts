@@ -26,7 +26,6 @@ export default class Batcher<T> {
 			return [];
 		}
 
-
 		this.updatesPerSecond = this.items.size() / this.updateInterval;
 		this.updatesPerFrame = this.updatesPerSecond * deltaTime;
 		this.updateAccumlator += this.updatesPerFrame;
